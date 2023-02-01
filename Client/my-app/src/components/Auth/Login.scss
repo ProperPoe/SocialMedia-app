@@ -1,11 +1,10 @@
-.form-container {
+.login-form-container {
     background-color: lightgreen;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     .card{
-        border: 1px solid black;
         border-radius: 10px;
         overflow: hidden;
         display: flex;

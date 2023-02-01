@@ -1,15 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Login.scss'
 
 function Login() {
     return (
         <>
-        <div className='form-container'>
+        <div className='login-form-container'>
             <div className='card'>
                 <div className='left'>
                     <span>Hello</span>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, delectus! Dolorum error quo molestiae recusandae.</p>
-                    <button>Register</button>
+                    <span>Don't have an account?</span>
+                    <Link to="/register">
+                        <button>Register</button>
+                    </Link>
                 </div>
                 <div className='right'>
                     <form>
