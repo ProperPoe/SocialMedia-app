@@ -6,7 +6,7 @@ function Navbar() {
         <>
         <div className='navbar-container'>
             <div className='logo'>
-                Hiiiiii
+                MS
             </div>
             <div>
                 <ul>

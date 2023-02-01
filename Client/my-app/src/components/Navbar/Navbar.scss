@@ -6,14 +6,30 @@
     background-color: black;
     height: 70px;
     justify-content: space-between;
+    .logo{
+        cursor: pointer;
+        margin: 0px 20px;
+        font-size: 3rem;
+    }
     ul{
         border: 2px solid black;
         color: white;
         display: flex;
         list-style-type: none;
         margin: 0px 5px;
-        li{
+        li:first-child{
+            cursor: pointer;
             margin: 0px 5px;
+        }
+        li:first-child:hover{
+            border-bottom: 1.8px solid white;
+        }
+        li:last-child{
+            cursor: pointer;
+            margin: 0px 5px;
+        }
+        li:last-child:hover{
+            border-bottom: 1.8px solid white;
         }
     }
 }
