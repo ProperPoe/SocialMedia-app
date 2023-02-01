@@ -1,25 +1,53 @@
 .form-container {
+    background-color: lightgreen;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    form{
-        border: 2px solid black;
+    .card{
+        border: 1px solid black;
         border-radius: 10px;
+        overflow: hidden;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 300px;
-        gap: 30px;
-        padding: 20px;
-        width: 200px;
-
-        input{
-            border: none;
-            border-bottom: 2px solid lightgray;
+        width: 400px;
+        .left{
+            flex: 1;
+            background-color: black;
+            color: white;
+            height: 300px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+
         }
+
+        .right{
+            flex: 1;
+            background-color: white;
+            form{
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 300px;
+                gap: 30px;
+                padding: 20px;
+                width: 200px;
+        
+                input{
+                    border: none;
+                    border-bottom: 2px solid lightgray;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+        };
+
+        
     }
+    
 }
