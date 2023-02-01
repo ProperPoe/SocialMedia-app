@@ -1,0 +1,25 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    form{
+        border: 2px solid black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        gap: 30px;
+        padding: 20px;
+        width: 200px;
+
+        input{
+            border: none;
+            border-bottom: 2px solid lightgray;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
