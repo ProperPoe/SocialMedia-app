@@ -1,34 +1,39 @@
+@import "../../style.scss";
+
 .navbar-container {
-    border-bottom: 2px solid black;
-    color: white;
-    display: flex;
-    align-items: center;
-    background-color: black;
-    height: 70px;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    .logo{
-        span{
-            margin: 0px 20px;
-            font-size: 3rem;
-            color: white;
-            cursor: pointer;
-        }
-    }
-    ul{
-        border: 2px solid black;
-        color: white;
+    @include themify($themes){
+        border-bottom: 2px solid black;
+        color: themed("textColor");
         display: flex;
-        list-style-type: none;
-        margin: 0px 5px;
-        li{
-            color: white;
-            cursor: pointer;
-            margin: 0px 5px;
+        align-items: center;
+        background-color: themed("bg");
+        height: 70px;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        .logo{
+            span{
+                margin: 0px 20px;
+                font-size: 3rem;
+                color: themed("textColor");
+                cursor: pointer;
+            }
         }
-        li:hover{
-            border-bottom: 1.8px solid white;
+        ul{
+            //border: 2px solid black;
+            color: white;
+            display: flex;
+            list-style-type: none;
+            margin: 0px 5px;
+            li{
+                color: themed("textColor");
+                cursor: pointer;
+                margin: 0px 5px;
+            }
+            li:hover{
+                border-bottom: 1.8px solid themed("textColor");
+            }
         }
     }
+    
 }

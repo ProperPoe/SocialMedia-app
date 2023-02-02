@@ -1,5 +1,6 @@
 import {createBrowserRouter, RouterProvider, Route, Outlet} from "react-router-dom"
 import './App.css';
+import './style.scss'
 import Navbar from '././components/Navbar/Navbar';
 import Home from "././components/Home/Home";
 import Login from "././components/Auth/Login";
@@ -9,7 +10,7 @@ import Profile from "./components/Profile/Profile";
 function App() {
   const Layout = () => {
     return(
-      <div>
+      <div className="theme-dark">
         <Navbar />
         <Outlet />
       </div>

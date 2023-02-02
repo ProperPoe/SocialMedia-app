@@ -1,18 +1,24 @@
+@import "../../style.scss";
+
 .post-container{
-    background-color: rgb(22, 22, 22);
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    align-items: center;
+    @include themify($themes){
+        background-color: themed("bgSoft");
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        align-items: center;
+    }
 }
 
 .post-card{
-    background-color: black;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
-    color: white;
-    height: 400px;
-    width: 400px;
-    padding: 20px;
+    @include themify($themes){
+        background-color: themed("bg");
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+        color: themed("textColor");
+        height: 400px;
+        width: 400px;
+        padding: 20px;
+    }
 }
