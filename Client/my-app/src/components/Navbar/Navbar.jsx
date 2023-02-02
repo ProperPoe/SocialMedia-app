@@ -16,7 +16,7 @@ function Navbar() {
                 <Link to="/" style={{textDecoration: "none"}}>
                     <span>MS</span>
                 </Link> 
-                <DarkModeOutlinedIcon />
+                <WbSunnyOutlinedIcon />
             </div>
             <div>
                 <ul>
