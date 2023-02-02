@@ -7,9 +7,12 @@
     height: 70px;
     justify-content: space-between;
     .logo{
-        cursor: pointer;
-        margin: 0px 20px;
-        font-size: 3rem;
+        span{
+            margin: 0px 20px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+        }
     }
     ul{
         border: 2px solid black;
@@ -18,6 +21,7 @@
         list-style-type: none;
         margin: 0px 5px;
         li{
+            color: white;
             cursor: pointer;
             margin: 0px 5px;
         }
