@@ -6,11 +6,15 @@ import Home from "././components/Home/Home";
 import Login from "././components/Auth/Login";
 import Register from "././components/Auth/Register";
 import Profile from "./components/Profile/Profile";
+import { useContext } from "react";
+import { DarkModeContext } from "././context/darkModeContext";
 
 function App() {
+  const {darkMode} = useContext(DarkModeContext)
+  
   const Layout = () => {
     return(
-      <div className="theme-dark">
+      <div className={`theme-${darkMode ? "dark" : "light"}`}>
         <Navbar />
         <Outlet />
       </div>

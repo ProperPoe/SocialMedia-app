@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.scss'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
@@ -6,9 +6,13 @@ import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined'
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined'
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined'
+import { DarkModeContext } from '../../context/darkModeContext'
 
 
 function Navbar() {
+
+    const {toggle, darkMode} = useContext(DarkModeContext)
+
     return (
         <>
         <div className='navbar-container'>
@@ -16,7 +20,7 @@ function Navbar() {
                 <Link to="/" style={{textDecoration: "none"}}>
                     <span>MS</span>
                 </Link> 
-                <WbSunnyOutlinedIcon />
+                {darkMode ? <DarkModeOutlinedIcon onClick={toggle} /> : <WbSunnyOutlinedIcon onClick={toggle} />}
             </div>
             <div>
                 <ul>
