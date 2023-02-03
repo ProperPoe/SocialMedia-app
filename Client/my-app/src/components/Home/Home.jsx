@@ -5,7 +5,9 @@ import Posts from '../Posts/Posts'
 function Home() {
     return (
         <>
-        <Posts />
+        <div className='post-container'>
+            <Posts />
+        </div>
         </>
         
     )
