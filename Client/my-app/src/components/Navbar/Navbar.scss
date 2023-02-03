@@ -25,6 +25,11 @@
             display: flex;
             list-style-type: none;
             margin: 0px 5px;
+            
+            @include mobile{
+                display: none;
+            }
+
             li{
                 color: themed("textColor");
                 cursor: pointer;

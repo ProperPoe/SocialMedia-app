@@ -21,6 +21,9 @@
         }
         .profile-container{
             padding: 20px 70px;
+            @include mobile {
+                padding: 10px;
+            }
             .uInfo{
                 height: 300px;
                 border-radius: 20px;
@@ -32,6 +35,12 @@
                 align-items: center;
                 justify-content: space-between;
                 margin-bottom: 20px;
+                @include mobile {
+                    flex-direction: column;
+                    height: 30vh;
+                    padding: 20px;
+                    margin-top: 75px;
+                }
                 .left{
                     flex: 1;
                     display: flex;
@@ -81,6 +90,5 @@
             }
         }
     }
-
     
 }

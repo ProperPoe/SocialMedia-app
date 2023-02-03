@@ -35,6 +35,13 @@ $themes:(
         }
     }
 }
+
+@mixin mobile {
+    @media (max-width: 750px){
+        @content;
+    }
+}
+
 @function themed($key) {
     @return map-get($theme-map, $key)
 }
