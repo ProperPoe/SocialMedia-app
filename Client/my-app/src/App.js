@@ -8,9 +8,12 @@ import Register from "././components/Auth/Register";
 import Profile from "./components/Profile/Profile";
 import { useContext } from "react";
 import { DarkModeContext } from "././context/darkModeContext";
+import { AuthContext } from "./context/authContext";
 
 function App() {
-  const {darkMode} = useContext(DarkModeContext)
+  const {currentUser} = useContext(AuthContext);
+
+  const {darkMode} = useContext(DarkModeContext);
   
   const Layout = () => {
     return(

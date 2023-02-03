@@ -2,7 +2,7 @@
 
 .navbar-container {
     @include themify($themes){
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid themed("borderColor");
         color: themed("textColor");
         display: flex;
         align-items: center;
