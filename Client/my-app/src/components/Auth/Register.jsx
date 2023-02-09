@@ -22,7 +22,7 @@ function Register() {
         try{
             await axios.post("http://localhost:3001/api/auth/register", inputs)
         }catch(err){
-            setErr(err)
+            setErr(err.response.data)
         }
     }
 
@@ -44,6 +44,7 @@ function Register() {
                         <input type="text" placeholder='Email' name='email' onChange={handleChange}/>
                         <input type="text" placeholder='Username' name='username' onChange={handleChange} />
                         <input type="text" placeholder='Password' name='password' onChange={handleChange} />
+                        {err && err}
                         <button onClick={handleClick}>Register</button>
                     </form>
                 </div>
