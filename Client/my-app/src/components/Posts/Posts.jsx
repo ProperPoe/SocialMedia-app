@@ -21,12 +21,23 @@ const Posts = () => {
     ];
 
     return (
-        <div className="posts">
-            {posts.map(post=>(
-                <Post post={post} key={post.id} />
-            ))}
-        </div>
-    )
+        <>
+            <div className="posts-container">
+                <div className="post-form">
+                    <form action="">
+                        <textarea type="text" name="" id="" placeholder="Enter a post.." />
+                        <button>Share</button>
+                    </form>
+                </div>
+                <div>
+                    {posts.map(post=>(
+                        <Post post={post} key={post.id} />
+                    ))}
+                </div>
+            </div>
+        </>
+)
+        
 }
 
 export default Posts
