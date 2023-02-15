@@ -1,20 +1,26 @@
 @import "../../style.scss";
 
 .post-container{
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     @include themify($themes){
         background-color: themed("bgSoft");
+        gap: 30px
     }
-}
 
-.post-card{
-    @include themify($themes){
-        background-color: themed("bg");
-        border: none;
-        border-radius: 20px;
-        box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
-        color: themed("textColor");
-        height: 400px;
-        width: 400px;
-        padding: 20px;
+    .post-card{
+        gap: 20px;
+        /*@include themify($themes){
+            background-color: themed("bg");
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+            color: themed("textColor");
+            height: 400px;
+            width: 400px;
+            padding: 20px;
+        }*/
     }
 }

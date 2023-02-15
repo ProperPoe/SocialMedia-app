@@ -1,0 +1,44 @@
+@import "../../style.scss";
+
+.post-form {
+    display: flex;
+    justify-content: center;
+    form {
+        @include themify($themes){
+            background-color: themed("bg");
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+            color: themed("textColor");
+            gap: 40px;
+            height: 175px;
+            width: 700px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            position: relative;
+        }
+        textarea {
+            @include themify($themes){
+                height: 100px;
+                background-color: themed("bg");
+                color: themed("textColor");
+                resize: none;
+            }
+        }
+        button {
+            background-color: blue;
+            border: 0;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            height: 25px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin: 20px;
+            width: 50px;
+        }
+    }   
+}
