@@ -11,7 +11,7 @@
             box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
             color: themed("textColor");
             gap: 40px;
-            height: 175px;
+            height: 205px;
             width: 700px;
             padding: 20px;
             display: flex;
@@ -39,6 +39,17 @@
             bottom: 0;
             margin: 20px;
             width: 50px;
+        }
+        .upload {
+            left: 0;
+        }
+
+        .uploadHiddden {
+            display: none;
+        }
+
+        input{
+           // border: 1px solid white;
         }
     }   
 }
