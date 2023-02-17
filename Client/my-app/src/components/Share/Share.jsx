@@ -45,13 +45,14 @@ function Share() {
         if(file){
             imgUrl = await upload()
         }
-        mutation.mutate({ desc, img: imgUrl })
+        mutation.mutate({ desc, img: imgUrl });
+        setDesc("")
     }
     return (
         <>
             <div className="post-form">
                 <form action="">
-                    <textarea type="text" name="" id="" placeholder="Enter a post.." onChange={(e)=>setDesc(e.target.value)} />
+                    <textarea type="text" name="" id="" placeholder="Enter a post.." onChange={(e)=>setDesc(e.target.value)} value={desc}/>
                     <button className={uploaded === false ? 'upload' : 'uploadHidden'} onClick={handleUploadClick}>Upload</button>
                     {uploaded === true ? <input type="file" id='file' onChange={(e) => setFile(e.target.files[0])} /> : null}
                     <button onClick={handleClick}>Share</button>
