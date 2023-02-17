@@ -6,8 +6,19 @@ import { makeRequest } from "../../axios"
 
 function Share() {
     const [file, setFile] = useState(null);
-    const [desc, setDesc] = useState("")
-    const [upload, setUpload] = useState(false)
+    const [desc, setDesc] = useState("");
+    const [uploaded, setUploaded] = useState(false);
+
+    const upload = async () => {
+        try {
+            const formData = new FormData();
+            formData.append("file", file);
+            const res = await makeRequest.post("/upload", formData);
+            return res.data;
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     const { currentUser } = useContext(AuthContext);
 
@@ -25,20 +36,24 @@ function Share() {
     const handleUploadClick = (e) => {
         e.preventDefault();
 
-        setUpload(true);
+        setUploaded(true);
     }
     
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault();
-        mutation.mutate({desc})
+        let imgUrl = "";
+        if(file){
+            imgUrl = await upload()
+        }
+        mutation.mutate({ desc, img: imgUrl })
     }
     return (
         <>
             <div className="post-form">
                 <form action="">
                     <textarea type="text" name="" id="" placeholder="Enter a post.." onChange={(e)=>setDesc(e.target.value)} />
-                    <button className={upload === false ? 'upload' : 'uploadHidden'} onClick={handleUploadClick}>Upload</button>
-                    {upload === true ? <input type="file" id='file' onChange={(e) => setFile(e.target.files[0])} /> : null}
+                    <button className={uploaded === false ? 'upload' : 'uploadHidden'} onClick={handleUploadClick}>Upload</button>
+                    {uploaded === true ? <input type="file" id='file' onChange={(e) => setFile(e.target.files[0])} /> : null}
                     <button onClick={handleClick}>Share</button>
                 </form>
             </div>
