@@ -10,7 +10,7 @@ import { makeRequest } from '../../axios'
 import { AuthContext } from '../../context/authContext'
 
 function Post({post}) {
-    //const [liked, setLiked] = useState(true)
+    const [liked, setLiked] = useState(true)
 
     const {currentUser} = useContext(AuthContext);
 
@@ -58,7 +58,7 @@ function Post({post}) {
                 </div>
                 <div className='info'>
                     <div className='item'>
-                        {isLoading ? ("loading") : data.includes(currentUser.id) ? <FavoriteOutlinedIcon style={{color: "red"}} onClick={handleLike} /> : <FavoriteBorderOutlinedIcon onClick={handleLike} /> }
+                        {isLoading ? "loading" : data.includes(currentUser.id) ? <FavoriteOutlinedIcon style={{color: "red"}} onClick={handleLike} /> : <FavoriteBorderOutlinedIcon onClick={handleLike} /> }
                         {isLoading ? "loading" : data.length} Likes
                     </div>
                 </div>

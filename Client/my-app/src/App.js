@@ -1,4 +1,4 @@
-import {createBrowserRouter, RouterProvider, Route, Outlet} from "react-router-dom"
+import {createBrowserRouter, RouterProvider, Route, Outlet, Navigate} from "react-router-dom"
 import './App.css';
 import './style.scss'
 import Navbar from '././components/Navbar/Navbar';
@@ -28,11 +28,20 @@ function App() {
       </QueryClientProvider>
     )
   }
+
+  const PortectedRoute = ({children}) => {
+    if(!currentUser){
+      return <Navigate to="/login" />
+    }
+
+    return children
+  }
+
   //Router with children
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout />,
+      element: <PortectedRoute><Layout /></PortectedRoute> ,
       children: [
         {
           path: "/",

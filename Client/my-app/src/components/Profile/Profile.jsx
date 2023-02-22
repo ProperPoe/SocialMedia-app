@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './profile.scss'
 import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
@@ -10,12 +10,26 @@ import LanguageIcon from "@mui/icons-material/Language"
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined"
 import MoreVertIcon from "@mui/icons-material/MoreVert"
 import Posts from '../Posts/Posts'
+import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
+import { makeRequest } from '../../axios'
+import { useLocation } from 'react-router-dom'
 
 function Profile() {
+
+    const userId = parseInt(useLocation().pathname.split("/")[2])
+
+    const { isLoading, error, data } = useQuery(["user"], () => 
+        makeRequest.get("/users/find/"+userId).then((res)=>{
+            return res.data;
+        })    
+    )
+
+    
+
     return (
         <div className='profile'>
-            <div className='images'>
-                    <img className='profilePic' src="https://ucarecdn.com/7de78bac-7e1c-4404-a57f-a34a9e1c7070/-/crop/3485x3491/0,105/-/preview/-/progressive/yes/-/format/auto/" alt="" />
+            {isLoading ? "loading" :<> <div className='images'>
+                    <img className='profilePic' src={data.profilePic} alt="" />
             </div>
             <div className='profile-container'>
                 <div className='uInfo'>
@@ -37,7 +51,7 @@ function Profile() {
                         </a>
                     </div>
                     <div className='center'>
-                        <span className='profile-name'>Jane Doe</span>
+                        <span className='profile-name'>{data.username}</span>
                         <div className='info'>
                             <div className='item'>
                                 <PlaceIcon />
@@ -55,7 +69,7 @@ function Profile() {
                     </div>
                 </div>
                 <Posts />
-            </div>
+            </div></>}
         </div>
     )
 }
