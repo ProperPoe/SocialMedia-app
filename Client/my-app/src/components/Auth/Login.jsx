@@ -4,6 +4,7 @@ import { AuthContext } from '../../context/authContext'
 import './Login.scss'
 
 function Login() {
+    const {currentUser} = useContext(AuthContext);
     const [inputs, setInputs] = useState({
         username:"",
         password:"",
@@ -21,7 +22,9 @@ function Login() {
         e.preventDefault();
         try{
             await login(inputs)
-            navigate("/")
+            if(currentUser){
+                navigate("/")
+            }
         }catch(err){
             setErr(err.response.data)
         }

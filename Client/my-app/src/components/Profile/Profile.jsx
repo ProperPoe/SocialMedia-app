@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './profile.scss'
 import FacebookTwoToneIcon from "@mui/icons-material/FacebookTwoTone"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
@@ -13,9 +13,12 @@ import Posts from '../Posts/Posts'
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import { makeRequest } from '../../axios'
 import { useLocation } from 'react-router-dom'
+import Update from '../Update/Update'
+import { AuthContext } from '../../context/authContext'
 
 function Profile() {
-
+    const [openUpdate, setOpenUpdate] = useState(false)
+    const {currentUser} = useContext(AuthContext)
     const userId = parseInt(useLocation().pathname.split("/")[2])
 
     const { isLoading, error, data } = useQuery(["user"], () => 
@@ -29,7 +32,7 @@ function Profile() {
     return (
         <div className='profile'>
             {isLoading ? "loading" :<> <div className='images'>
-                    <img className='profilePic' src={data.profilePic} alt="" />
+                    <img className='profilePic' src={"/upload/"+data.profilePic} alt="" />
             </div>
             <div className='profile-container'>
                 <div className='uInfo'>
@@ -55,13 +58,19 @@ function Profile() {
                         <div className='info'>
                             <div className='item'>
                                 <PlaceIcon />
-                                <span>USA</span>
+                                <span>{data.city}</span>
                             </div>
                             <div className='item'>
                                 <LanguageIcon />
-                                <span>steve.com</span>
+                                <span>{data.website}</span>
                             </div>
                         </div>
+                        {userId === currentUser.id ? <div className='updateProfile'>
+                            <button onClick={()=>setOpenUpdate(true)}>Update</button>
+                        </div> : null}
+                        {/*openUpdate && <div className='updateContainer'>
+                            <Update setOpenUpdate={setOpenUpdate} />
+                        </div>*/}
                     </div>
                     <div className='right'>
                         <EmailOutlinedIcon />
@@ -70,6 +79,7 @@ function Profile() {
                 </div>
                 <Posts userId={userId} />
             </div></>}
+            {openUpdate && <Update setOpenUpdate={setOpenUpdate} user={data} />}
         </div>
     )
 }

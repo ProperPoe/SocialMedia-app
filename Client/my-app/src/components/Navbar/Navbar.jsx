@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link, Navigate, useLocation } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.scss'
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined'
@@ -13,6 +13,12 @@ import { AuthContext } from '../../context/authContext'
 function Navbar() {
     const {toggle, darkMode} = useContext(DarkModeContext)
     const {currentUser} = useContext(AuthContext)
+
+    const navigate = useNavigate();
+
+    //const handleProfile =()=> {
+        //navigate(`/profile/${currentUser.id}`)
+    //}
 
     return (
         <>
@@ -28,10 +34,13 @@ function Navbar() {
                     <Link to="/" style={{textDecoration: "none"}}>
                         <li><HomeOutlinedIcon /></li>
                     </Link>
-                    
-                    <Link to={`/profile/${currentUser.id}`} style={{textDecoration: "none"}}>
+                    {/*<li><PersonOutlinedIcon onClick={handleProfile} /></li>*/}
+                    {/*<Link to={`/profile/${currentUser.id}`} style={{textDecoration: "none"}}>
                         <li><PersonOutlinedIcon /></li>
-                    </Link>
+                    </Link>*/}
+                    <a href={`/profile/${currentUser.id}`} style={{textDecoration: "none"}}>
+                        <li><PersonOutlinedIcon /></li>
+                    </a>
                     <Link to="/" style={{textDecoration: "none"}}>
                         <li><NotificationsOutlinedIcon /></li>
                     </Link>
