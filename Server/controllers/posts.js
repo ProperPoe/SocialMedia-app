@@ -60,3 +60,63 @@ export const addPosts = (req, res) => {
 
     
 }
+export const deletePosts = (req, res) => {
+    const token = req.cookies.accessToken;
+
+    if(!token){
+        return res.status(401).json("Not logged in!")
+    }
+
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if(err){
+            return res.status(403).json("Token is not valid!")
+        }
+    
+
+        const q = "DELETE FROM posts WHERE `id`=? AND `userId`=?";
+
+        db.qeuery(q, [req.params.id, userInfo.id], (err, data) => {
+            if(err){
+                return res.status(500).json(err)
+            }
+
+            if(data.affectedRows>0){
+                return res.status(200).json("Post deleted!")
+            }
+        
+            return res.status(403).json("You can only delete your post!")
+        })
+    })
+
+    
+}
+export const updatePosts = (req, res) => {
+    const token = req.cookies.accessToken;
+
+    if(!token){
+        return res.status(401).json("Not logged in!")
+    }
+
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if(err){
+            return res.status(403).json("Token is not valid!")
+        }
+    
+
+        const q = "UPDATE posts SET `desc`=? WHERE `id`=?";
+
+        db.query(q, [req.body.desc, req.params.id], (err, data) => {
+            if(err){
+                return res.status(500).json(err)
+            }
+
+            if(data.affectedRows>0){
+                return res.json("Post updated!")
+            }
+        
+            return res.status(403).json("You can only update your post!")
+        })
+    })
+
+    
+}

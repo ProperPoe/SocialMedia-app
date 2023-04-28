@@ -8,10 +8,12 @@ import moment from "moment"
 import { useQuery, useQueryClient, useMutation } from '@tanstack/react-query'
 import { makeRequest } from '../../axios'
 import { AuthContext } from '../../context/authContext'
+import Edit from '../Edit/Edit'
 
 function Post({post}) {
     const [liked, setLiked] = useState(true)
     const [openMenu, setOpenMenu] = useState(false)
+    const [openEdit, setOpenEdit] = useState(false)
 
     const {currentUser} = useContext(AuthContext);
 
@@ -32,10 +34,21 @@ function Post({post}) {
             queryClient.invalidateQueries(["likes"])
         },
     })
+    const deleteMutation = useMutation((postId) => {
+        return makeRequest.delete("/posts/" + postId);
+    }, {
+        onSuccess: () => {
+            // Invalidate and refetch
+            queryClient.invalidateQueries(["posts"])
+        },
+    })
 
 
     const handleLike = () => {
         mutation.mutate(data.includes(currentUser.id))
+    }
+    const handleDelete = () => {
+        deleteMutation.mutate(post.id)
     }
 
     return (
@@ -55,8 +68,8 @@ function Post({post}) {
                         <MoreHorizonIcon onClick={() => openMenu === false ? setOpenMenu(true) : setOpenMenu(false)} />
                         {openMenu ?
                             <div className='edit-menu'>
-                                <button>Edit</button>
-                                <button>Delete</button>
+                                <button onClick={() => setOpenEdit(true)}>Edit</button>
+                                <button onClick={handleDelete}>Delete</button>
                             </div> : ""}
                     </div>
                     
@@ -71,6 +84,7 @@ function Post({post}) {
                         {isLoading ? "loading" : data.length} Likes
                     </div>
                 </div>
+                {openEdit ? <Edit setOpenEdit={setOpenEdit} setOpenMenu={setOpenMenu} post={post}/> : ""}
             </div>
         </div>
     )
