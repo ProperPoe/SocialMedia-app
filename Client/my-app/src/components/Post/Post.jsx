@@ -11,6 +11,7 @@ import { AuthContext } from '../../context/authContext'
 
 function Post({post}) {
     const [liked, setLiked] = useState(true)
+    const [openMenu, setOpenMenu] = useState(false)
 
     const {currentUser} = useContext(AuthContext);
 
@@ -50,7 +51,15 @@ function Post({post}) {
                             <span className='date'>{moment(post.createdAt).fromNow()}</span>
                         </div>
                     </div>
-                    <MoreHorizonIcon />
+                    <div className='upper-right'>
+                        <MoreHorizonIcon onClick={() => openMenu === false ? setOpenMenu(true) : setOpenMenu(false)} />
+                        {openMenu ?
+                            <div className='edit-menu'>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </div> : ""}
+                    </div>
+                    
                 </div>
                 <div className='content'>
                     <p>{post.desc}</p>
