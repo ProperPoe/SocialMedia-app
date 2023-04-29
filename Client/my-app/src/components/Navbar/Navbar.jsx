@@ -12,7 +12,7 @@ import { AuthContext } from '../../context/authContext'
 
 function Navbar() {
     const {toggle, darkMode} = useContext(DarkModeContext)
-    const {currentUser} = useContext(AuthContext)
+    const {currentUser, logout} = useContext(AuthContext)
 
     const navigate = useNavigate();
 
@@ -45,7 +45,7 @@ function Navbar() {
                         <li><NotificationsOutlinedIcon /></li>
                     </Link>
                     <Link to="/login" style={{textDecoration: "none"}}>
-                        <li>Login</li>
+                        <li onClick={logout}>Login</li>
                     </Link>
                 </ul>
             </div>
