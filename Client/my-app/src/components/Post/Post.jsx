@@ -34,6 +34,26 @@ function Post({post}) {
             queryClient.invalidateQueries(["likes"])
         },
     })
+
+    const notifMutation = useMutation((liked) => {
+        if(liked) return makeRequest.delete("/notifications?postId="+post.id)
+        return makeRequest.post("/notifications", {userId: currentUser.id, postId: post.id})
+    },{
+        onSuccess: () => {
+            queryClient.invalidateQueries(["notifications"])
+        }
+    })
+    
+    const countMutation = useMutation((liked) => {
+        if(liked) return makeRequest.delete("/count?postId="+post.id)
+        return makeRequest.post("/count", {userId: currentUser.id, postId: post.id})
+    },{
+        onSuccess: () => {
+            queryClient.invalidateQueries(["count"])
+        }
+    })
+
+
     const deleteMutation = useMutation((postId) => {
         return makeRequest.delete("/posts/" + postId);
     }, {
@@ -46,6 +66,8 @@ function Post({post}) {
 
     const handleLike = () => {
         mutation.mutate(data.includes(currentUser.id))
+        notifMutation.mutate(data.includes(currentUser.id))
+        countMutation.mutate(data.includes(currentUser.id))
     }
     const handleDelete = () => {
         deleteMutation.mutate(post.id)

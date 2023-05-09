@@ -8,6 +8,8 @@ import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined'
 import { DarkModeContext } from '../../context/darkModeContext'
 import { AuthContext } from '../../context/authContext'
+import { useQuery } from '@tanstack/react-query'
+import { makeRequest } from '../../axios'
 
 
 function Navbar() {
@@ -15,6 +17,13 @@ function Navbar() {
     const {currentUser, logout} = useContext(AuthContext)
 
     const navigate = useNavigate();
+    
+    const {isLoading, err, data} = useQuery(["count"], () => 
+        makeRequest.get("/count").then((res) => {
+            console.log(res.data)
+            return res.data
+        })
+    )
 
     //const handleProfile =()=> {
         //navigate(`/profile/${currentUser.id}`)
@@ -41,10 +50,11 @@ function Navbar() {
                     <a href={`/profile/${currentUser.id}`} style={{textDecoration: "none"}}>
                         <li><PersonOutlinedIcon /></li>
                     </a>
-                    <Link to="/" style={{textDecoration: "none"}}>
+                    <Link to={`/notifications/${currentUser.id}`} style={{textDecoration: "none"}}>
                         <li><NotificationsOutlinedIcon /></li>
                     </Link>
-                    <span>1</span>
+                    
+                    <span>{data?.length === 0 ? "" : data?.length}</span>
                     <Link to="/login" style={{textDecoration: "none"}}>
                         <li onClick={logout}>Login</li>
                     </Link>
