@@ -44,6 +44,7 @@ function Navbar() {
                     <Link to="/" style={{textDecoration: "none"}}>
                         <li><NotificationsOutlinedIcon /></li>
                     </Link>
+                    <span>1</span>
                     <Link to="/login" style={{textDecoration: "none"}}>
                         <li onClick={logout}>Login</li>
                     </Link>
