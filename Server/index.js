@@ -7,6 +7,7 @@ import likeRoutes from "./routes/likes.js"
 import postRoutes from "./routes/posts.js"
 import notifyRoutes from "./routes/notifications.js"
 import countRoutes from "./routes/count.js"
+import viewRoutes from "./routes/viewPost.js"
 import cors from "cors"
 import cookieParser from "cookie-parser";
 import multer from "multer";
@@ -46,6 +47,7 @@ app.use("/api/likes", likeRoutes)
 app.use("/api/auth", authRoutes)
 app.use("/api/notifications", notifyRoutes)
 app.use("/api/count", countRoutes)
+app.use("/api/view", viewRoutes)
 
 app.listen(3001, () => {
     console.log("Server listening on port 3001")
