@@ -53,9 +53,14 @@ function Update({setOpenUpdate, user}) {
             update
             <form action="">
                 <input type="file" onChange={e=>setProfile(e.target.files[0])}/>
-                <input type="text" name='username' onChange={handleChange} />
-                <input type="text" name='city' onChange={handleChange} />
-                <input type="text" name='website' onChange={handleChange}/>
+                <input type="text" name='username' placeholder='username' onChange={handleChange} />
+                <input type="text" name='city' placeholder='city' onChange={handleChange} />
+                <input type="text" name='website' placeholder='website' onChange={handleChange}/>
+                <input type="text" name='twitter' placeholder='Twitter' onChange={handleChange}/>
+                <input type="text" name='facebook' placeholder='Facebook' onChange={handleChange}/>
+                <input type="text" name='instagram' placeholder='Instagram' onChange={handleChange}/>
+                <input type="text" name='pinterest' placeholder='Pinterest' onChange={handleChange}/>
+                <input type="text" name='linkedin' placeholder='Linkedin' onChange={handleChange}/>
                 <button onClick={handleClick}>Update</button>
             </form>
             <button onClick={()=>setOpenUpdate(false)}>X</button>

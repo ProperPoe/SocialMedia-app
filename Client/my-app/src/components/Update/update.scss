@@ -1,4 +1,8 @@
 .update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -10,4 +14,11 @@
     background-color: white;
     padding: 50px;
     z-index: 999;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
