@@ -28,13 +28,18 @@ export const updateUser = (req,res) =>{
         }
     
 
-        const q = "UPDATE users SET `username`=?, `city`=?, `website`=?, `profilePic`=? WHERE id=?";
+        const q = "UPDATE users SET `username`=?, `city`=?, `website`=?, `profilePic`=?, `facebook`=?, `instagram`=?, `twitter`=?, `pinterest`=?, `linkedin`=? WHERE id=?";
 
         db.query(q, [
             req.body.username,
             req.body.city,
             req.body.website,
             req.body.profilePic,
+            req.body.facebook,
+            req.body.instagram,
+            req.body.twitter,
+            req.body.pinterest,
+            req.body.linkedin,
             userInfo.id
         ], (err, data) => {
             if(err){

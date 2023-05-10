@@ -9,6 +9,11 @@ function Update({setOpenUpdate, user}) {
         username: "",
         city: "",
         website: "",
+        facebook: "",
+        instagram: "",
+        twitter: "",
+        pinterest: "",
+        linkedin: ""
     });
 
     const upload = async (file) => {
@@ -56,9 +61,9 @@ function Update({setOpenUpdate, user}) {
                 <input type="text" name='username' placeholder='username' onChange={handleChange} />
                 <input type="text" name='city' placeholder='city' onChange={handleChange} />
                 <input type="text" name='website' placeholder='website' onChange={handleChange}/>
-                <input type="text" name='twitter' placeholder='Twitter' onChange={handleChange}/>
                 <input type="text" name='facebook' placeholder='Facebook' onChange={handleChange}/>
                 <input type="text" name='instagram' placeholder='Instagram' onChange={handleChange}/>
+                <input type="text" name='twitter' placeholder='Twitter' onChange={handleChange}/>
                 <input type="text" name='pinterest' placeholder='Pinterest' onChange={handleChange}/>
                 <input type="text" name='linkedin' placeholder='Linkedin' onChange={handleChange}/>
                 <button onClick={handleClick}>Update</button>

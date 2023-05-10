@@ -37,7 +37,7 @@ function Profile() {
             <div className='profile-container'>
                 <div className='uInfo'>
                     <div className='left'>
-                        <a href='http://facebook.com' target="_blank" rel='noreferrer'>
+                        <a href={data.facebook} target="_blank" rel='noreferrer'>
                             <FacebookTwoToneIcon />
                         </a>
                         <a href='http://instagram.com'>
