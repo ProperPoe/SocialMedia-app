@@ -1,9 +1,15 @@
+@import "../../style.scss";
+
 .notifs-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    gap: 10px;
+    @include themify($themes){
+        background-color: themed("bgSoft");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
 
 }

@@ -1,8 +1,26 @@
+@import "../../style.scss";
+
 .notifs {
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 250px;
+    @include themify($themes){
+        background-color: themed("bg");
+        border: 1px solid black;
+        color: themed("textColor");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 250px;
+
+        button {
+            background-color: blue;
+            border: 0;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            height: 25px;
+            margin: 5px;
+            width: 50px;
+        }
+    }
+    
 }

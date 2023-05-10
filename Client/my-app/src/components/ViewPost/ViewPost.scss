@@ -1,19 +1,26 @@
+@import "../../style.scss";
+
 .view-card-container{
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 500px;
-    padding: 10px;
-    gap: 20px;
-
-    .top{
+    @include themify($themes){
+        background-color: themed("bg");
+        color: themed("textColor");
+        border: 1px solid black;
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
+        width: 500px;
+        padding: 10px;
+        gap: 20px;
 
-        .top-left{
+        .top{
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+
+            .top-left{
+                display: flex;
+                flex-direction: column;
+            }
         }
     }
+    
 }
