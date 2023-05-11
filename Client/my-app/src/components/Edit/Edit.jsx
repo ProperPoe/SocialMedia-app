@@ -29,10 +29,10 @@ function Edit({setOpenEdit, post, setOpenMenu}) {
         <>
         <div className='edit'>
             <form action="">
-                <input type="text" onChange={(e) => setDesc(e.target.value)} />
+                <textarea type="text" onChange={(e) => setDesc(e.target.value)} placeholder='Enter a post...' />
                 <button onClick={handSubmit}>Submit</button>
             </form>
-            <button onClick={()=>setOpenEdit(false)} >X</button>
+            <button onClick={()=>setOpenEdit(false)} >Cancel</button>
         </div>
         </>
     )

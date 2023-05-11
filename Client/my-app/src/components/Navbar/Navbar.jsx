@@ -56,7 +56,7 @@ function Navbar() {
                     
                     <span>{data?.length === 0 ? "" : data?.length}</span>
                     <Link to="/login" style={{textDecoration: "none"}}>
-                        <li onClick={logout}>Login</li>
+                        <li onClick={logout}>Logout</li>
                     </Link>
                 </ul>
             </div>

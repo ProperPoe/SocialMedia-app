@@ -88,7 +88,7 @@ function Post({post}) {
                     </div>
                     {currentUser.id === post.userId ?
                         <div className='upper-right'>
-                            <MoreHorizonIcon onClick={() => openMenu === false ? setOpenMenu(true) : setOpenMenu(false)} />
+                            <MoreHorizonIcon onClick={() => openMenu === false ? setOpenMenu(true) : setOpenMenu(false)} style={{cursor: "pointer"}} />
                             {openMenu ?
                                 <div className='edit-menu'>
                                     <button onClick={() => setOpenEdit(true)}>Edit</button>
@@ -106,7 +106,7 @@ function Post({post}) {
                 </div>
                 <div className='info'>
                     <div className='item'>
-                        {isLoading ? "loading" : data.includes(currentUser.id) ? <FavoriteOutlinedIcon style={{color: "red"}} onClick={handleLike} /> : <FavoriteBorderOutlinedIcon onClick={handleLike} /> }
+                        {isLoading ? "loading" : data.includes(currentUser.id) ? <FavoriteOutlinedIcon style={{color: "red", cursor: "pointer"}} onClick={handleLike} /> : <FavoriteBorderOutlinedIcon onClick={handleLike} style={{cursor: "pointer"}} /> }
                         {isLoading ? "loading" : data.length} Likes
                     </div>
                 </div>

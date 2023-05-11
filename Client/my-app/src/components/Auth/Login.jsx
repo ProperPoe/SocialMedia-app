@@ -34,9 +34,6 @@ function Login() {
     return (
         <>
         <div className='login-form-container'>
-            <Link to="/">
-                <span>Go Back</span>
-            </Link>
             <div className='card'>
                 <div className='left'>
                     <span>Hello</span>

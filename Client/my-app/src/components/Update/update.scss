@@ -1,24 +1,57 @@
-.update{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 50%;
-    height: 50%;
-    background-color: white;
-    padding: 50px;
-    z-index: 999;
+@import "../../style.scss";
 
-    form{
+.update{
+    @include themify($themes){
         display: flex;
-        flex-direction: column;
+        gap: 10px;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 50%;
+        height: 50%;
+        background-color: themed("bg");
+        color: themed("textColor");
+        padding: 50px;
+        z-index: 999;
+
+        form{
+            background-color: themed("bg");
+            color: themed("textColor");
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            input{
+                background-color: themed("bg");
+                color: themed("textColor");
+            }
+            button {
+                background-color: blue;
+                border: 0;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;
+                height: 25px;
+                width: 50px;
+            }
+        }
+        button {
+            background-color: blue;
+            border: 0;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            height: 50px;
+            width: 50px;
+        }
     }
+    
 }

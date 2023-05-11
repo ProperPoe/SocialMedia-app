@@ -33,18 +33,28 @@
                 }
 
                 .upper-right{
+                    position: relative;
                     .edit-menu{
                         display: flex;
                         flex-direction: column;
-
+                        position: absolute;
+                        right: 5px;
                         button {
-                            background-color: transparent;
-                            border: 1px solid white;
+                            //background-color: transparent;
+                            //border: 1px solid white;
                             border-radius: 5px;
-                            color: white;
+                            //color: white;
                             cursor: pointer;
                             height: 25px;
                             width: 50px;
+                        }
+                        button:nth-child(1){
+                            background-color: green;
+                            color: white;
+                        }
+                        button:nth-child(2){
+                            background-color: red;
+                            color: white;
                         }
                     }
                 }

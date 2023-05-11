@@ -1,12 +1,73 @@
+@import "../../style.scss";
+
 .edit{
-    border: 1px solid black;
-    background-color: green;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    height: 50%;
-    width: 50%;
+    @include themify($themes){
+        border: 1px solid black;
+        background-color: themed("bg");
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        height: 50%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        form {
+            
+                background-color: themed("bg");
+                //border: 1px solid white;
+                border-radius: 20px;
+                //box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
+                color: themed("textColor");
+                gap: 40px;
+                height: 250px;
+                width: 500px;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                //position: relative;
+            
+            textarea {
+                //@include themify($themes){
+                    height: 500px;
+                    width: 500px;
+                    background-color: themed("bg");
+                    color: themed("textColor");
+                    resize: none;
+                //}
+            }
+            button {
+                background-color: blue;
+                border: 0;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;
+                height: 90px;
+                //position: absolute;
+                //right: 0;
+                //bottom: 0;
+                //margin: 20px;
+                width: 50px;
+            }
+            
+    }
+    button {
+        background-color: blue;
+        border: 0;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        height: 25px;
+        //position: absolute;
+        //margin: 20px;
+        width: 50px;
+    }
+}
+    
 }

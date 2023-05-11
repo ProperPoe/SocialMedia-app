@@ -12,7 +12,6 @@ function ViewPost({setViewClicked, view, postViewId, notif}) {
                 <div className='top'>
                     <div className='top-left'>
                         {/*view[0]?.username*/}
-                        <span>1 year ago</span>
                     </div>
                     {/*currentUser.id === post.userId ?
                     <div className='top-right'>
@@ -23,9 +22,9 @@ function ViewPost({setViewClicked, view, postViewId, notif}) {
                 </div>
                 <div className='middle'>
                     {view[0]?.desc}
+                    <img src={"/upload/"+view[0]?.img} alt=""/>
                 </div>
                 <div className='bottom'>
-                    <span >Like 12</span>
                 </div>
                 {/*openUpdate ? <Update setOpenUpdate={setOpenUpdate}  post={post} /> : ""*/}
             </div> : <Notification notif={notif}/>
