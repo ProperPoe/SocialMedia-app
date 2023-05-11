@@ -31,8 +31,8 @@ function Notification({notif, ind}) {
     }
 
     const handleView = () => {
-        setViewClicked(true)
         setPostViewId(notif.postId)
+        setViewClicked(true)
     }
     
     
@@ -48,14 +48,18 @@ function Notification({notif, ind}) {
         <>
         <div>
             {viewClicked === false ?
+            <div className="notif-card-container">
             <div className="notifs" key={ind} onClick={handleView}>
                 {notif.username} has liked your post 
+            </div> 
+            <div className="button-container">
                 <button onClick={handleSeen}>Seen</button>
                 <button onClick={handleDelete}>Delete</button>
-            </div> 
+            </div>   
+            </div>
             : isLoading ? "loading" :
                 <div>
-                    <ViewPost view={data} isLoading={isLoading} viewClicked={viewClicked} setViewClicked={setViewClicked} />
+                    <ViewPost notif={notif} view={data} postViewId={postViewId} isLoading={isLoading} viewClicked={viewClicked} setViewClicked={setViewClicked} />
                 </div>
                 
             

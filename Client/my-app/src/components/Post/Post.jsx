@@ -86,14 +86,18 @@ function Post({post}) {
                             <span className='date'>{moment(post.createdAt).fromNow()}</span>
                         </div>
                     </div>
-                    <div className='upper-right'>
-                        <MoreHorizonIcon onClick={() => openMenu === false ? setOpenMenu(true) : setOpenMenu(false)} />
-                        {openMenu ?
-                            <div className='edit-menu'>
-                                <button onClick={() => setOpenEdit(true)}>Edit</button>
-                                <button onClick={handleDelete}>Delete</button>
-                            </div> : ""}
-                    </div>
+                    {currentUser.id === post.userId ?
+                        <div className='upper-right'>
+                            <MoreHorizonIcon onClick={() => openMenu === false ? setOpenMenu(true) : setOpenMenu(false)} />
+                            {openMenu ?
+                                <div className='edit-menu'>
+                                    <button onClick={() => setOpenEdit(true)}>Edit</button>
+                                    <button onClick={handleDelete}>Delete</button>
+                                </div> : ""}
+                        </div>
+                        : ""
+                    }
+                    
                     
                 </div>
                 <div className='content'>
